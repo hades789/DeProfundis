@@ -60,5 +60,5 @@ class mypdo extends PDO{
     	return null;
     }
     
-} //prout
+}
 ?>
