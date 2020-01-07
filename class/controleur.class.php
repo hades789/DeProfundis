@@ -35,6 +35,7 @@ class controleur {
 				$retour = $retour . '<div class="card text-white bg-dark m-2" ><div class="card-body">
 				<article>
 					<h3 class="card-title">'.$row->h3.'</h3>
+					<h6 class="card-subtitle mb-2 text-muted">'.$row->prenom.' '.$row->nom.' '.$row->intitule.'</h6>
 					<p class="card-text">'.$row->corps.'</p>
 				</article>
 				</div></div>';
