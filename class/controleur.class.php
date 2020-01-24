@@ -146,7 +146,13 @@ class controleur {
 		';
 		return $retour;
 	}	
-	
+
+	public function dating()
+	{
+		date_default_timezone_set('Europe/Lisbon');
+		$date = date('m/d/Y h:i:s a', time());
+		return $date;
+	}
 }
 
 ?>
