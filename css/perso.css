@@ -84,6 +84,7 @@ section strong {
 	height: auto;
 }
 .HideContent{
+	overflow: hidden;
 	height: 5em !important;
 }
 
