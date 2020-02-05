@@ -36,7 +36,10 @@ class controleur {
 				<article>
 					<h3 class="card-title">'.$row->h3.'</h3>
 					<h6 class="card-subtitle mb-2 text-muted">'.$row->prenom.' '.$row->nom.' '.$row->intitule.'</h6>
+					<div class="content ShowContent">
 					<p class="card-text">'.$row->corps.'</p>
+					</div>
+					<button type="button" class="btn btn-success">+</button>
 				</article>
 				</div></div>';
 			}
