@@ -9,7 +9,7 @@ class page_base {
 	protected $page;
 	protected $metadescription="Bienvenue sur le site de promotion des sites touristiques de FRANCE";
 	protected $metakeyword=array('france','site touristique','tourisme','géolocalisation' );
-	protected $path='http://localhost/PPE2-EPSI-2019';
+	protected $path='http://localhost/DeProfundis';
 
 	public function __construct() {
 		$numargs = func_num_args();
@@ -134,6 +134,7 @@ class page_base {
 		echo '
 				<ul class="navbar-nav">
 					<li class="nav-item active"><a class="nav-link"   href="'.$this->path.'/Accueil" >Accueil </a></li>
+						<li class="nav-item active"><a class="nav-link"   href="'.$this->path.'/Departement" >département </a></li>
 				</ul>';
 	}
 	protected function affiche_menu_connexion() {

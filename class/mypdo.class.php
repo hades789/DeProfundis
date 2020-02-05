@@ -31,7 +31,7 @@ class mypdo extends PDO{
     	}
     }
     
-    public function liste_article($title)	
+    public function liste_article($title)
     {
     
 		$requete='select a.h3,a.corps from article a,page p where a.page=p.id and p.title="'.$title.'";';

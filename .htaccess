@@ -1,6 +1,6 @@
 RewriteEngine on
 
-RewriteBase /PPE2-EPSI-2019/
+RewriteBase /DeProfundis/
 
 RewriteCond %{REQUEST_FILENAME} !-l
 RewriteCond %{REQUEST_FILENAME} !-f

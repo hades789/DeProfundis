@@ -18,6 +18,16 @@
 			$site-> left_sidebar=$controleur->retourne_article($site->titre);
 			$site->affiche();
 			break;
+            case 'departement' :
+                $site->js='departement';
+                $site->js='jquery.dataTables.min';
+                $site->js='dataTables.bootstrap4.min';
+                $site->css='dataTables.bootstrap4.min';
+                $site->titre='departement';
+                $site-> right_sidebar=$site->rempli_right_sidebar();
+                $site-> left_sidebar=$controleur->retourne_tableau_departement();
+                $site->affiche();
+                break;
 		case 'connexion' :
 			$site->titre='Connexion';
 			$site->js='jquery.validate.min';
