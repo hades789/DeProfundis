@@ -74,6 +74,30 @@ class controleur {
 
 	}
 
+	public function retourne_flexbox($p)
+	{
+
+		$retour = '<div class="card text-white bg-dark m-2 card-body flexbox " >';
+		$result = $this->vpdo->liste_flexbox() ;
+		if ($result != false) {
+			while ($row = $result->fetch(PDO::FETCH_OBJ)) {
+				$retour = $retour . '
+	<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 container .grid-container ">
+		<div class="hovereffect">
+		<img src="'.$p.'/image/france/IMAGES_RES/'.$row->image.'" alt="/image/erreur-404.png" class="">
+			
+				<div class="overlay">
+					<div>'.$row->titre.'</div>
+					<div class="text" >'.$row->texte.'</div>
+				</div>
+		</div>
+		</div>';
+			}
+			$retour = $retour .'</div>';
+			return $retour;
+		}
+	}
+
 
 
 	public function genererMDP ($longueur = 8){

@@ -45,6 +45,19 @@ class mypdo extends PDO{
    		}
     	return null;
     }
+
+	public function liste_flexbox()
+	{
+		$requete=' select image,titre,texte from highlight';
+		$result=$this->connexion ->query($requete);
+		if ($result)
+
+		{
+
+			return ($result);
+		}
+		return $this->PARAM_nom_bd;
+	}
     public function liste_dep()
     {
     

@@ -18,6 +18,11 @@
 			$site-> left_sidebar=$controleur->retourne_article($site->titre);
 			$site->affiche();
 			break;
+        case 'highlights' :
+            $site->titre='Highlights';
+            $site->left_sidebar=$controleur->retourne_flexbox($site->path);
+            $site->affiche();
+            break;
             case 'departement' :
                 $site->js='departement';
                 $site->js='jquery.dataTables.min';
