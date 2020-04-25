@@ -80,7 +80,17 @@ section strong {
 @media (min-width: 3000px) {
 	
 }
+
 .hovereffect {
+
+.ShowContent{
+	height: auto;
+}
+.HideContent{
+	overflow: hidden;
+	height: 5em !important;
+}
+
 
 	width: 100%;
 	height:auto;
