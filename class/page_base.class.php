@@ -134,6 +134,7 @@ class page_base {
 		echo '
 				<ul class="navbar-nav">
 					<li class="nav-item active"><a class="nav-link"   href="'.$this->path.'/Accueil" >Accueil </a></li>
+						<li class="nav-item active"><a class="nav-link"   href="'.$this->path.'/Departement" >département </a></li>
 				</ul>';
 	}
 	protected function affiche_menu_connexion() {
