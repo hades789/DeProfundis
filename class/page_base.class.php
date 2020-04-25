@@ -1,6 +1,7 @@
 ﻿<?php
 
 class page_base {
+    protected $global;
 	protected $right_sidebar;
 	protected $left_sidebar;
 	protected $titre;
@@ -21,6 +22,10 @@ class page_base {
 
 	public function __set($propriete, $valeur) {
 		switch ($propriete) {
+            case 'global' : {
+                $this->global = $this->global.$valeur;
+                break;
+            }
 			case 'css' : {
 				$this->css[count($this->css)+1] = $valeur;
 				break;
@@ -134,7 +139,11 @@ class page_base {
 		echo '
 				<ul class="navbar-nav">
 					<li class="nav-item active"><a class="nav-link"   href="'.$this->path.'/Accueil" >Accueil </a></li>
+
+					<li class="nav-item active"><a class="nav-link"   href="'.$this->path.'/galerie" >Galerie </a></li>
+
 						<li class="nav-item active"><a class="nav-link"   href="'.$this->path.'/Departement" >département </a></li>
+            
 				</ul>';
 	}
 	protected function affiche_menu_connexion() {
@@ -244,6 +253,9 @@ class page_base {
 						<?php $this->affiche_footer_menu(); ?>
 						
   						<div style="clear:both;">
+                            <div style="width:100%;">
+                                <?php echo $this->global; ?>
+                            </div>
     						<div style="float:left;width:75%;">
      							<?php echo $this->left_sidebar; ?>
     						</div>
@@ -251,6 +263,7 @@ class page_base {
 								<?php echo $this->right_sidebar;?>
     						</div>
   						</div>
+
 						<div style="clear:both;">
 							<?php $this->affiche_footer(); ?>
 						</div>

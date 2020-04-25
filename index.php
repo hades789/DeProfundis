@@ -19,6 +19,13 @@
 			$site-> left_sidebar=$controleur->retourne_article($site->titre);
 			$site->affiche();
 			break;
+
+        case 'galerie' :
+            $site->titre='Galerie';
+            $site->global=$controleur->retourne_galerie($site->path);
+            $site->affiche();
+            break;
+
         case 'highlights' :
             $site->titre='Highlights';
             $site->left_sidebar=$controleur->retourne_flexbox($site->path);
@@ -34,6 +41,7 @@
                 $site-> left_sidebar=$controleur->retourne_tableau_departement();
                 $site->affiche();
                 break;
+
 		case 'connexion' :
 			$site->titre='Connexion';
 			$site->js='jquery.validate.min';

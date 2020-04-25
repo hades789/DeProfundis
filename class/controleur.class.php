@@ -101,6 +101,72 @@ class controleur {
 			return $retour;
 		}
 	}
+	/*public function retourne_galerie($chemin)
+	{
+		$retour = '<div class="d-flex flex-row flex-wrap justify-content-center " >';
+		$result = $this->vpdo->liste_galerie();
+		if ($result != false) {
+			while ($row = $result->fetch(PDO::FETCH_OBJ)) {
+				$retour = $retour . '
+    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 container .grid-container">
+        <div class="hovereffect">
+        <img src="'.$chemin.'/image/france/IMAGESRES/'.$row->image.'" alt="/image/erreur-404.png" class="image">
+            
+                <div class="overlay">
+                    <div>'.$row->titre.'</div>
+                    <div class="text" >'.$row->texte.'</div>
+                </div>
+        </div>
+    </div>';
+			}
+			$retour = $retour .'</div>';
+			return $retour;
+		}
+		/*$retour='<div class="galerie">
+					<img src="'.$chemin.'/image/france/IMAGESRES/Bassin arcahon.jpg" alt="alt">
+					<img src="'.$chemin.'/image/france/IMAGESRES/Bassin-dArcachon.jpg" alt="alt">
+					<img src="'.$chemin.'/image/france/IMAGESRES/Bonifacio.jpg" alt="alt">
+					<img src="'.$chemin.'/image/france/IMAGESRES/camargue.jpg" alt="alt">
+					<img src="'.$chemin.'/image/france/IMAGESRES/camargue1.jpg" alt="alt">
+					<img src="'.$chemin.'/image/france/IMAGESRES/carcassonne.jpg" alt="alt">
+					<img src="'.$chemin.'/image/france/IMAGESRES/chateau-de-chambord.jpg" alt="alt">
+					<img src="'.$chemin.'/image/france/IMAGESRES/chateau-de-chenonceau.jpg" alt="alt">
+					<img src="'.$chemin.'/image/france/IMAGESRES/Cirque-de-gavarnie.jpg" alt="alt">
+					<img src="'.$chemin.'/image/france/IMAGESRES/Gorges-du-Tarn.jpg" alt="alt">
+					<img src="'.$chemin.'/image/france/IMAGESRES/gravures-rupestres-vallee-des-merveilles-region-mont-bego.jpg" alt="alt">
+					<img src="'.$chemin.'/image/france/IMAGESRES/Mont-saint-michel.jpg" alt="alt">
+					<img src="'.$chemin.'/image/france/IMAGESRES/Mont-Saint-Michel_vu_du_ciel.jpg.jpg" alt="alt">
+					<img src="'.$chemin.'/image/france/IMAGESRES/Orgues_ille_sur_tet.jpg.jpg" alt="alt">
+					</div>';
+			return $retour;
+
+	}*/
+	public function retourne_galerie($chemin)
+	{
+
+		$retour = '<div class="container-fluid bg-dark m-2">
+		<div class="d-flex flex-row flex-wrap justify-content-center">';
+		$result = $this->vpdo->liste_galerie() ;
+		if ($result != false) {
+			while ($row = $result->fetch(PDO::FETCH_OBJ)) {
+				$retour = $retour . '
+    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 container .grid-container ">
+        <div class="hovereffect d-flex flex-column">
+        	<img src="'.$chemin.'/image/france/IMAGESRES/'.$row->image.'" alt="/image/erreur-404.png" class="img-fluid">
+            
+                <div class="overlay">
+                	<div class="text d-flex justify-content-center">
+                    	<h5>'.$row->titre.'</h5>
+                	</div>
+                </div>
+        </div>
+    </div>';
+			}
+			$retour = $retour .'</div>';
+			return $retour;
+		}
+	}
+
 
 
 
