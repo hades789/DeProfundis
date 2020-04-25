@@ -18,6 +18,11 @@
 			$site-> left_sidebar=$controleur->retourne_article($site->titre);
 			$site->affiche();
 			break;
+        case 'galerie' :
+            $site->titre='Galerie';
+            $site->global=$controleur->retourne_galerie($site->path);
+            $site->affiche();
+            break;
 		case 'connexion' :
 			$site->titre='Connexion';
 			$site->js='jquery.validate.min';

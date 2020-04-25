@@ -59,6 +59,20 @@ class mypdo extends PDO{
     	}
     	return null;
     }
+	public function liste_galerie()
+	{
+
+		$requete='SELECT image,titre,texte FROM highlight';
+
+		$result=$this->connexion ->query($requete);
+		if ($result)
+
+		{
+
+			return ($result);
+		}
+		return $this->PARAM_nom_bd;
+	}
     
 }
 ?>
