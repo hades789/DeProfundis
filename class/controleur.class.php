@@ -10,37 +10,95 @@ class controleur {
 	public function __get($propriete) {
 		switch ($propriete) {
 			case 'vpdo' :
-				{
-					return $this->vpdo;
-					break;
-				}
+			{
+				return $this->vpdo;
+				break;
+			}
 			case 'db' :
-				{
-					
-					return $this->db;
-					break;
-				}
+			{
+
+				return $this->db;
+				break;
+			}
 		}
 	}
 	public function retourne_article($title)
 	{
-		
+
 		$retour='<section>';
 		$result = $this->vpdo->liste_article($title);
 		if ($result != false) {
 			while ( $row = $result->fetch ( PDO::FETCH_OBJ ) )
-			// parcourir chaque ligne sélectionnée
+				// parcourir chaque ligne sélectionnée
 			{
-		
+
 				$retour = $retour . '<div class="card text-white bg-dark m-2" ><div class="card-body">
 				<article>
 					<h3 class="card-title">'.$row->h3.'</h3>
-					<p class="card-text">'.$row->corps.'</p>
+					<h6 class="card-subtitle mb-2 text-muted">'.$row->prenom.' '.$row->nom.' '.$row->intitule.'</h6>
+					<div class="content HideContent">
+					    <p class="card-text">'.$row->corps.'</p>
+					</div> 
+					<button type="button" class="btn btn-success showhide">+</button>
 				</article>
 				</div></div>';
 			}
-		$retour = $retour .'</section>';
-		return $retour;
+			$retour = $retour .'</section>';
+			return $retour;
+		}
+	}
+	public function retourne_tableau_departement()
+	{
+
+		$retour='<section><div class ="table-responsive">
+<table id="mogue" class="table table-striped table-bordered" cellspacing="0">
+<thead>
+   <tr>
+   <th>Code département</th>
+		<th>Département</th>
+		<th>Région</th>
+   
+</tr></thead>';
+		$result = $this->vpdo->liste_dep();
+		if ($result != false) {
+			while ($row = $result->fetch(PDO::FETCH_OBJ)) // parcourir chaque ligne sélectionnée
+			{
+
+				$retour = $retour . '
+
+<tr>
+        <td>' . $row->departement_code . '</td>
+        <td>' . $row->departement_nom . '</td>
+        <td>' . $row->libel . '</td>
+    </tr>';
+			}
+		}
+		$retour = $retour . '</table></div></section>';
+			return $retour;
+
+	}
+
+	public function retourne_flexbox($p)
+	{
+
+		$retour = '<div class="card text-white bg-dark m-2 card-body flexbox " >';
+		$result = $this->vpdo->liste_flexbox() ;
+		if ($result != false) {
+			while ($row = $result->fetch(PDO::FETCH_OBJ)) {
+				$retour = $retour . '
+	<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 container .grid-container ">
+		<div class="hovereffect">
+		<img src="'.$p.'/image/france/IMAGES_RES/'.$row->image.'" alt="/image/erreur-404.png" class="">
+			
+				<div class="overlay">
+					<div>'.$row->titre.'</div>
+					<div class="text" >'.$row->texte.'</div>
+				</div>
+		</div>
+		</div>';
+			}
+			$retour = $retour .'</div>';
+			return $retour;
 		}
 	}
 	/*public function retourne_galerie($chemin)
@@ -110,31 +168,32 @@ class controleur {
 	}
 
 
-	
+
+
 	public function genererMDP ($longueur = 8){
 		// initialiser la variable $mdp
 		$mdp = "";
-	
+
 		// Définir tout les caractères possibles dans le mot de passe,
 		// Il est possible de rajouter des voyelles ou bien des caractères spéciaux
 		$possible = "2346789bcdfghjkmnpqrtvwxyzBCDFGHJKLMNPQRTVWXYZ&#@$*!";
-	
+
 		// obtenir le nombre de caractères dans la chaîne précédente
 		// cette valeur sera utilisé plus tard
 		$longueurMax = strlen($possible);
-	
+
 		if ($longueur > $longueurMax) {
 			$longueur = $longueurMax;
 		}
-	
+
 		// initialiser le compteur
 		$i = 0;
-	
+
 		// ajouter un caractère aléatoire à $mdp jusqu'à ce que $longueur soit atteint
 		while ($i < $longueur) {
 			// prendre un caractère aléatoire
 			$caractere = substr($possible, mt_rand(0, $longueurMax-1), 1);
-	
+
 			// vérifier si le caractère est déjà utilisé dans $mdp
 			if (!strstr($mdp, $caractere)) {
 				// Si non, ajouter le caractère à $mdp et augmenter le compteur
@@ -142,7 +201,7 @@ class controleur {
 				$i++;
 			}
 		}
-	
+
 		// retourner le résultat final
 		return $mdp;
 	}
@@ -181,7 +240,7 @@ class controleur {
 				</div>
 			</div>
 		</div>';
-		
+
 		return $retour;
 	}
 
@@ -211,7 +270,14 @@ class controleur {
 		';
 		return $retour;
 	}	
-	
+
+	public function dating()
+	{
+		date_default_timezone_set('Europe/Lisbon');
+		$date = date('m/d/Y h:i:s a', time());
+		return $date;
+	}
+
 }
 
 ?>

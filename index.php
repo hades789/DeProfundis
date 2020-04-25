@@ -14,15 +14,34 @@
 	switch ($params[1]) {
 		case 'accueil' :
 			$site->titre='Accueil';
+			$site->js='perso';
 			$site-> right_sidebar=$site->rempli_right_sidebar();
 			$site-> left_sidebar=$controleur->retourne_article($site->titre);
 			$site->affiche();
 			break;
+
         case 'galerie' :
             $site->titre='Galerie';
             $site->global=$controleur->retourne_galerie($site->path);
             $site->affiche();
             break;
+
+        case 'highlights' :
+            $site->titre='Highlights';
+            $site->left_sidebar=$controleur->retourne_flexbox($site->path);
+            $site->affiche();
+            break;
+            case 'departement' :
+                $site->js='departement';
+                $site->js='jquery.dataTables.min';
+                $site->js='dataTables.bootstrap4.min';
+                $site->css='dataTables.bootstrap4.min';
+                $site->titre='departement';
+                $site-> right_sidebar=$site->rempli_right_sidebar();
+                $site-> left_sidebar=$controleur->retourne_tableau_departement();
+                $site->affiche();
+                break;
+
 		case 'connexion' :
 			$site->titre='Connexion';
 			$site->js='jquery.validate.min';
@@ -46,6 +65,6 @@
 			$site-> left_sidebar='<img src="'.$site->path.'/image/erreur-404.png" alt="Erreur de liens">';
 			$site->affiche();
 			break;
-	}	
+	}
 	
 ?>
