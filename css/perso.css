@@ -80,5 +80,12 @@ section strong {
 @media (min-width: 3000px) {
 	
 }
+.ShowContent{
+	height: auto;
+}
+.HideContent{
+	overflow: hidden;
+	height: 5em !important;
+}
 
 
